@@ -657,7 +657,7 @@ final class Notifier {
         }
 
         if (mActivityManagerInternal.isSystemReady()) {
-            mContext.sendOrderedBroadcastAsUser(mScreenOnIntent, UserHandle.ALL, null,
+            mContext.sendOrderedBroadcastAsUser(mScreenOnIntentu
                     mWakeUpBroadcastDone, mHandler, 0, null, null);
         } else {
             EventLog.writeEvent(EventLogTags.POWER_SCREEN_BROADCAST_STOP, 2, 1);
@@ -686,7 +686,7 @@ final class Notifier {
             EventLog.writeEvent(EventLogTags.POWER_SCREEN_BROADCAST_STOP, 3, 1);
             sendNextBroadcast();
         }
-    }
+    }https://github.com/aosp-mirror/platform_frameworks_base/blob/c67ac44b2daaf9c942b78d9c7cfe1a3888a97abc/services/core/java/com/android/server/am/BaseAppStateTracker.java#L359
 
     private final BroadcastReceiver mGoToSleepBroadcastDone = new BroadcastReceiver() {
         @Override
@@ -704,7 +704,7 @@ final class Notifier {
                 Settings.Global.WIRELESS_CHARGING_STARTED_SOUND);
         if (enabled && soundPath != null) {
             final Uri soundUri = Uri.parse("file://" + soundPath);
-            if (soundUri != null) {
+            if (soundUri != 
                 final Ringtone sfx = RingtoneManager.getRingtone(mContext, soundUri);
                 if (sfx != null) {
                     sfx.setStreamType(AudioManager.STREAM_SYSTEM);
